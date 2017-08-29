@@ -1,0 +1,221 @@
+<script id="member-add-template" type="text/x-handlebars-template">
+    <div class="row" id="member-add-warp">
+        <div class="col-lg-8 col-md-10 col-sm-10 col-lg-offset-2 col-md-offset-1 col-sm-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>修改会员信息</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form action="member/add" method="post" id="member-add-form" class="form-horizontal">
+                        <fieldset>
+                            <legend>基本信息</legend>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">卡号</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="pkid" value="{{ memberInfor.pkid }}"  data-minlength="12" data-maxlength="14" required disabled>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">会员姓名</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="name" value="{{ memberInfor.name }}" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">会员密码</label>
+                                    <div class="col-sm-8">
+                                        <input type="password" class="form-control" name="password" data-minlength="6" id="inputPassword" data-maxlength="12"  required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">确认密码</label>
+                                    <div class="col-sm-8">
+                                        <input type="password" class="form-control" data-minlength="6" data-maxlength="12" data-match="#inputPassword" data-match-error="两次输入的密码不一致" required >
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required" data-length="12">手机号码</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="phoneNumber" value="{{ memberInfor.phoneNumber }}" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">会员状态</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="state" required value="{{ memberInfor.state }}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">会员等级</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" name="grade">
+                                            <option>====请选择====</option>
+                                            {{#each allocation.level}}
+                                            <option value="{{ @index }}">{{ this }}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">所属店铺</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="business" value="{{ memberInfor.business }}" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">会员生日</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input type="text" name="birthday" class="form-control datepicker" value="{{ memberInfor.birthday }}">
+                                            <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">会员性别</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" name="sex">
+                                            <option>====请选择====</option>
+                                            <option value="woman">女</option>
+                                            <option value="man">男</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">剩余积分</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="integral">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">剩余金额</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="free">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">电子邮箱</label>
+                                    <div class="col-sm-8">
+                                        <input type="email" class="form-control" required value="{{ memberInfor.email }}" data-error="请输入正确的邮箱地址">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">固定电话</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" value="{{ memberInfor.number }}" class="form-control" required data-error="请输入正确的电话号码">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">身份证号</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" value="{{ memberInfor.id }}" disabled class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required">办卡日期</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control datepicker">
+                                            <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label required">联系地址</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" value="{{ memberInfor.address }}" required></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">备注</label>
+                                    <div class="col-sm-10"><textarea class="form-control" rows="2"></textarea></div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>其他信息</legend>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">车牌号</label>
+                                    <div class="col-sm-8"><input type="text" class="form-control"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">所在单位</label>
+                                    <div class="col-sm-8"><input type="text" class="form-control"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">职务</label>
+                                    <div class="col-sm-8"><input type="text" class="form-control"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">家庭</label>
+                                    <div class="col-sm-8"><input type="text" class="form-control"></div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                        <hr/>
+                        <div class="col-sm-10 col-sm-offset-2 text-center btn-row">
+                            <label>
+                                <input type="checkbox"> 发送短信
+                            </label>
+                            <button type="reset" class="btn btn-default">重置</button>
+                            <button type="submit" class="btn btn-primary">提交</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</script>

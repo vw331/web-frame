@@ -1,0 +1,18 @@
+<script id="feedback-template" type="text/x-handlebars-template">
+
+    <div class="panel panel-default col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 feedback-msg-warp">
+        <div class="panel-body">
+            <div class="pull-left">
+                <div class="icon-feedback feedback-{{ type }}"></div>
+            </div>
+            <div class="pull-left feedback-center">
+                <h3 class="title">{{ title }}</h3>
+                {{#if msg}}<p>
+                    {{ msg }}
+                </p>{{/if}}
+                <p>您可以<a href="javascript:;" onClick="JavaScript:location.reload();">继续新增></a>、<a href="javascript:;">查看详情></a>，或者<a href="javascript:;" onclick="JavaScript:history.back(-1)">返回上一级</a></p>
+            </div>
+        </div>
+    </div>
+
+</script>

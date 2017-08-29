@@ -1,0 +1,52 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #EAEDF4;
+}
+.main {
+  width: 360px;
+  margin: 120px auto 0 auto;
+  padding-bottom: 20px;
+  position: relative;
+  min-height: 400px;
+  background: #ffffff;
+  box-shadow: 0 3px 6px 0 #cccccc;
+}
+.main:before {
+  content: '';
+  display: block;
+  widht: 100%;
+  height: 4px;
+  background: #1a8afb;
+}
+.main .title {
+  margin-top: 40px;
+}
+.main .form {
+  padding: 40px 26px;
+}
+.state-warp {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.6);
+}
+.icon-success {
+  width: 80px;
+  height: 110px;
+  padding-top: 90px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -40px;
+  color: #ffffff;
+  text-align: center;
+  background: url("../images/success.png") 0 0 no-repeat;
+}
+/*# sourceMappingURL=login.css.map */

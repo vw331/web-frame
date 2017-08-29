@@ -1,0 +1,42 @@
+{
+  "name": "member",
+  "version": "0.6.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sunhao",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "bootstrap-datepicker": "^1.6.4",
+    "bootstrap-table": "^1.11.2",
+    "bootstrap-validator": "^0.11.9",
+    "director": "^1.2.8",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "handlebars": "^4.0.6",
+    "jquery": "^3.1.1",
+    "mysql": "^2.13.0",
+    "requirejs": "^2.3.3",
+    "requirejs-text": "^2.0.15",
+    "toaster.js": "^1.0.2",
+    "toastr": "^2.1.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^2.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-livereload": "^0.1.2",
+    "grunt-contrib-requirejs": "^1.0.0",
+    "grunt-contrib-uglify": "^2.2.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-css": "^0.5.4"
+  }
+}

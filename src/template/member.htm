@@ -1,0 +1,67 @@
+<script id="member-template" type="text/x-handlebars-template">
+    <div id="member-warp">
+        <div class="panel panel-default">
+            <div class="panel-heading">搜索</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="exampleInputName2">会员ID</label>
+                                <input type="text" class="form-control" id="exampleInputName2" >
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail2">会员姓名</label>
+                                <input type="text" class="form-control" id="exampleInputEmail2">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail2">手机号码</label>
+                                <input value="{{name}}" type="text" class="form-control" id="exampleInputEmail3">
+                            </div>
+                            <div class="form-group">
+                                <label>会员等级</label>
+                                <select class="form-control">
+                                    <option>====请选择====</option>
+                                    {{#each allocation.level}}
+                                        <option>{{ this }}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-2 text-right">
+                        <button class="btn btn-primary" type="submit">搜索</button>
+                        <button class="btn btn-default" type="reset">重置</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="toolbar">
+            <div class="row" style="margin-bottom:16px">
+                <div class="col-md-4">
+                    <div class="pull-left" style="margin-right:20px">
+                        <button class="btn btn-primary" id="add"><span class="glyphicon glyphicon-plus"></span>新增</button>
+                        <button class="btn btn-warning" id="edit"><span class="glyphicon glyphicon-pencil"></span>编辑</button>
+                        <button class="btn btn-danger" id="remove"><span class="glyphicon glyphicon-remove"></span>删除</button>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="btn-group pull-right">
+                        {{#if permission.charge}} <button type="button" class="btn btn-default">充值</button> {{/if}}
+                        {{#if permission.changeCard}} <button type="button" class="btn btn-default">换卡</button> {{/if}}
+                        {{#if permission.delay}} <button type="button" class="btn btn-default">延期</button> {{/if}}
+                        {{#if permission.lock}} <button type="button" class="btn btn-default">锁定</button> {{/if}}
+                        {{#if permission.getMoney}} <button type="button" class="btn btn-default">提现</button> {{/if}}
+                        {{#if permission.pointReset}} <button type="button" class="btn btn-default">积分</button> {{/if}}
+                        {{#if permission.coupon}} <button type="button" class="btn btn-default">领券</button> {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table id="table-warp">
+
+        </table>
+    </div>
+</script>
